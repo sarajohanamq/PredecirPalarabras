@@ -1,0 +1,24 @@
+
+<form class="example-form">
+    <div class="tittle"><h1>Busqueda avanzada</h1></div>
+    
+    <div class="div-form">
+        
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Search</mat-label>
+            <input type="text"
+                   placeholder="Pick one"
+                   aria-label="Number"
+                   matInput
+                   [formControl]="myControl"
+                   [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <button (click)="enviar()"> <mat-icon>search</mat-icon></button>
+    </div>
+   
+  </form>
